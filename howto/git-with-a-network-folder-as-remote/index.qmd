@@ -1,0 +1,154 @@
+---
+title: Git with a Network Folder as Remote
+date: '2022-06-21'
+categories:
+  - git
+  - R
+  - RStudio
+  - Windows
+---
+
+# Overview
+
+If you do not have access to a dedicated Git server (usually hosts the GitLab/GitHub platforms), but still want to use Git for version control and collaboration, this page is for you! Most environments utilize a shared network drive, so you can use a folder on the drive as the remote "server". This allows you to work locally, which is much faster in most cases. This setup is ideal for client environments without access to GitLab or GitHub.
+
+# Definitions
+
+-   **Repository** (more commonly, "repo") - a central location for code, configuration files, and minor metadata.
+
+-   **Remote** - main repo, stored in a shared location. Usually a server, but will be a shared network folder for this purpose.
+
+-   **Local** - copy of repo on user device. Cloned from the Remote repo.
+
+-   **Network Copy** - specific to this purpose. A copy of the Remote repo cloned to another shared network location.
+
+# Workflow Preview
+
+1.  Perform all work on Local machine(s).
+
+2.  Push/pull to Remote.
+
+3.  When ready, open the Network Copy and pull. This is the "live" version of the projects. No editing is done here.
+
+# Requirements
+
+While you can use the command line for all Git transactions, this page will use the terminal in RStudio. Furthermore, you can take advantage of the Git GUI within RStudio to visualize branches, commits, changes, etc. It's like having GitLab/GitHub without the platform.
+
+-   [Git Executable](https://git-scm.com/downloads), for Windows
+
+::: callout-note
+You do not need Admin rights to install.
+:::
+
+::: callout-important
+Leave all options as default when installing.
+:::
+
+-   R/RStudio
+
+-   A shared network folder mapped to a drive letter.
+
+-   A basic understanding of Linux command line navigation.
+
+**Note: throughout, *\[some text\]* means replace with case-specific things. Do not include the brackets.**
+
+# Procedure
+
+1.  Set up.
+
+-   Launch RStudio.
+
+  -   Ensure any RStudio projects are closed.
+
+  -   If the Git executable was installed correctly, you should have the option to launch new Terminals with Git Bash. Go to **Tools \> Global Options**, **Terminal** from the sidebar, and make sure "New terminals open with:" **Git Bash**.
+
+  -   Launch two new terminals. It's nice to have one for the network side and one for the local side.
+
+2.  Prepare the local folder.
+
+  -   Create a folder where you want to work locally. I like to put local projects here, for example: `C:\Users\[your username]\Software\GitLocal\[your project name]`. You can do this through the Windows explorer or at the command line.
+
+  -   Open the local terminal session.
+
+  -   Navigate to the empty folder you just created. Initialize a new Git repository.
+
+``` bash
+cd [path to new folder as above]
+git init
+```
+
+3.  Prepare the remote folder.
+
+  -   Create a folder for the remote repo. Keep in mind this will act as the "server". You won't be able to see files there, it will just act as the engine for cloning from, pushing to, and pulling from. I put it here, for example: `[network drive letter]:\[path to your network project folder]\GitRemote\[your project name]`. Make sure it's named the same as your local folder. You can do this through the Windows explorer or at the command line.
+
+  -   Open the network terminal session.
+
+  -   Navigate to the empty folder you just created. Initialize a new, **bare** Git repository. Without a bare repo, you will get errors. I won't pretend I know why. I learned through troubleshooting.
+
+``` bash
+cd [path to new folder as above]
+git init --bare
+```
+
+4.  Add files to local folder.
+
+  -   Create an RStudio project in the new local folder (do this in a different session so you don't lose your terminals). If you already have an RStudio project, simply copy all of the files into the new local folder. The next time you open the RStudio project, it will automatically recognize the version control because of the `.git` folder within the local folder. Don't worry about opening the project just yet.
+
+  -   Open the local terminal session. If you do `git status`, you should see all of the files you just created/copied.
+
+  -   Stage the files, commit them locally, add the remote folder origin, and push to the remote.
+
+``` bash
+git add --all
+git commit -m "Initial commit"
+git remote add origin "[full path to the remote folder]"
+git push origin master
+```
+
+5.  Clone a copy to the shared network location.
+
+  -   Open remote terminal session. Navigate to a location that will house the production-ready versions of your projects. Clone from the remote "server". It's probably a good idea to make those folders read/execute only.
+
+``` bash
+cd [path to network location]
+git clone "[full path to the remote folder]"
+```
+
+# Creating a New Project
+
+-   Open network and local terminal sessions.
+
+-   Within remote folder, create a folder for the new Git project.
+
+-   In remote terminal session, navigate to the new folder; initialize the repo.
+
+``` bash
+cd [path to new folder]
+git init --bare
+```
+
+-   Within Git local folder, create a folder of the same name for the new project.
+
+-   In local terminal session, navigate to the new folder; initialize the repo.
+
+``` bash
+cd [path to new folder]
+git init
+```
+
+-   Create a new RStudio project in a different RStudio session. Save it in the local new folder.
+
+-   In local terminal session (within new folder), stage and commit files, add the remote folder origin, and push to the remote.
+
+``` bash
+git add --all
+git commit -m "Initial commit"
+git remote add origin "[full path to the remote folder]"
+git push origin master
+```
+
+# Resources
+
+-   [https://stackoverflow.com/questions/11635493/push-git-changes-to-a-shared-network-drive]()
+
+-   [https://stackoverflow.com/questions/2199897/how-to-convert-a-normal-git-repository-to-a-bare-one]()

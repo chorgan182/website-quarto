@@ -1,0 +1,12 @@
+---
+title: "Welcome"
+fig-cap-location: bottom
+---
+
+While I figure out what to put here, enjoy these pictures of my children 😺
+
+::: {layout-ncol="2"}
+![Cassidy](cass.jpg)
+
+![Charlie](char.jpg)
+:::

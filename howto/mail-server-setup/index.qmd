@@ -1,0 +1,73 @@
+---
+title: Mail Server Setup
+author: Chuck Horgan
+date: '2022-06-21'
+draft: true
+---
+
+# Overview
+
+As I quickly learned while venturing down this path, the backend of email transfer is actually quite complicated. Rather, it *can* be. Sifting through all of the information out there for every system and configuration can be overwhelming, so this little tutorial is meant to simplify things. However, to understand how email works, read the following wiki on the concepts behind email: [How email works](https://gitlab.com/muttmua/mutt/-/wikis/MailConcept)
+
+Now that you know the differences between all of the MxAs, our simple configuration will involve an **MTA** and an **MUA**. I found `mutt` first, which is a simplified command-line MUA. Then I realized that [mutt needs an MTA](https://gitlab.com/muttmua/mutt/-/wikis/MuttFaq/Sendmail) to actually send the mail, so I found that `sendmail` was the easiest to install and use.
+
+# Install and Configure an MTA
+
+-   As mentioned above, we are using `sendmail`. The following [instructions](https://kenfavors.com/code/how-to-install-and-configure-sendmail-on-ubuntu/) were used to set it up, but I summarized the steps below.
+
+-   Install sendmail.
+
+```{=html}
+<!-- -->
+```
+    sudo apt-get install sendmail
+
+-   Ensure hostname is in the host file.
+
+    -   If the hostname is already in the host file, exit with `C-x`.
+
+    -   If it is not, add it to the local line as follows (changing "hostname" to whatever yours is): `127.0.0.1 localhost hostname`.
+
+    -   Save and exit with `C-s` `C-x`.
+
+```{=html}
+<!-- -->
+```
+    # check hostname
+    hostname
+    # edit host file
+    sudo nano /etc/hosts
+
+-   Run configuration, and say yes to everything
+
+```{=html}
+<!-- -->
+```
+    sudo sendmailconfig
+
+# Install and Configure a Mail User Agent
+
+-   As mentioned above, we are using `mutt`. A link to the full guide on their GitLab wiki can be found [here](https://gitlab.com/muttmua/mutt/-/wikis/MuttGuide).
+
+-   Install mutt.
+
+```{=html}
+<!-- -->
+```
+    sudo apt-get install mutt
+
+-   That's it! Test it with something like this:
+
+```{=html}
+<!-- -->
+```
+    echo "Test" | mutt -s Hello user@example.com
+
+-   ...or with an attachment:
+
+```{=html}
+<!-- -->
+```
+    $ echo "Test text" | mutt -s "Test mail" -a example_file.txt -- user@example.com
+
+For more help or examples, check out this [mutt article on Ubuntu Community](https://help.ubuntu.com/community/mutt) or this [mutt article on nixCraft](https://www.cyberciti.biz/tips/sending-mail-with-attachment.html).

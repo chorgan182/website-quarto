@@ -1,0 +1,39 @@
+---
+title: WebEx Teams with GitLab
+author: Chuck Horgan
+date: '2022-06-21'
+categories:
+  - GitLab
+  - WebEx
+  - Productivity
+---
+
+# Overview
+
+GitLab supports many [integrations](https://docs.gitlab.com/ee/user/project/integrations/overview.html) with other apps. One of the useful ones is WebEx Teams. Rather than messaging your team directly after changes have been pushed (or, forgetting to), you can configure the GitLab project to send selective notifications to the space of your choosing. For example:
+
+![](images/paste-CBAF0A7E.png)
+
+# Procedure
+
+The process to integrate is simple, and the [documentation](https://docs.gitlab.com/ee/user/project/integrations/webex_teams.html) is clear. *Note: Steps 1 and 2 must be completed by a WebEx administrator* .
+
+1.  Open an incognito window in Chrome. The WebEx site was very unstable for me. It would timeout and not refresh properly. It may be an extension I have enabled or some caching issue. Either way, incognito windows worked best for me.
+
+2.  Go to the [WebEx App Hub](https://apphub.webex.com/). Log in to WebEx with the button in the top right. With the incognito window, you'll have to do this each time.
+
+3.  Search for "Incoming Webhooks". It should pop up. Click on it. The green button should say "Disconnect", because the app has already been connected by an administrator.
+
+4.  Scroll down to the bottom of the page. Select the desired space from the dropdown list. For GitLab, I just name them "GitLab" every time.
+
+5.  Click `Add`. This is where I was timing out and experiencing weird behavior from the site. If it loads indefinitely, hard reload the page with `Ctrl+Shift+R`. It always worked eventually for me.
+
+6.  Copy the webhook URL from the box.
+
+7.  Go to the GitLab project that you want to receive notifications for. In the left sidebar, go to *Settings \> Integrations*.
+
+8.  Scroll to the bottom of the page to find Webex Teams. Click on the name to go to the integration page.
+
+9.  Select the triggers that you wish to have in your WebEx space. I default to all and deselect them later if I want to. However, I do change the "Branches for which notifications are to be sent" option to "All branches".
+
+10. Paste the webhook URL copied from the WebEx app hub. Click `Save changes`, then `Test settings`. You should receive a notification in your WebEx space!

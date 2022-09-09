@@ -1,0 +1,22 @@
+---
+title: "Chuck Horgan"
+image: headshot.jpg
+about:
+  template: trestles
+  image-shape: round
+  links:
+    - icon: github
+      text: Github
+      href: https://github.com/chorgan182
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/charles-t-horgan-iv/
+    - icon: instagram
+      text: Instagram
+      href: https://www.instagram.com/charley_hargen/
+    - icon: youtube
+      text: YouTube
+      href: https://www.youtube.com/channel/UCrbKPkhmPJ7k5Vd8Y1M-d2A
+---
+
+# Hi I am Charles smile 😃

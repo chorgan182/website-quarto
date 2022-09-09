@@ -1,0 +1,12 @@
+[
+  {
+    "listing": "/howto/howto.html",
+    "items": [
+      "/howto/git-with-a-network-folder-as-remote/index.html",
+      "/howto/personal-macro-workbook/index.html",
+      "/howto/rstudio-desktop-on-ubuntu/index.html",
+      "/howto/webex-teams-with-gitlab/index.html",
+      "/howto/x-window-setup-on-ubuntu/index.html"
+    ]
+  }
+]

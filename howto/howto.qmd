@@ -1,0 +1,16 @@
+---
+author: ""
+listing: 
+  contents: "**/*.qmd"
+  type: default
+  sort: "title"
+  categories: cloud
+  fields: 
+    - date
+    - title
+    - categories
+    - description
+    - author
+    - file-modified
+    - reading-time
+---

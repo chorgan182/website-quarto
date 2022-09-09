@@ -1,0 +1,6 @@
+---
+title: "Code Snippets"
+page-layout: full
+---
+
+# Testing snippets landing page

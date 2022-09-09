@@ -1,0 +1,51 @@
+---
+title: Personal Macro Workbook
+author: Chuck Horgan
+date: '2022-06-21'
+categories:
+  - Excel
+  - VBA
+  - Windows
+---
+
+# Overview
+
+Sometimes we find we are copying modules between workbooks just to use a few macros in them. It may be more efficient to store your custom macros in one place. **Note**, however, that this may not be the best solution for collaboration. If another team member will be using the same macros upon opening the workbook, then it is not a good idea to store them in a personal location.
+
+# Process
+
+- Create the Personal workbook.
+
+  - Open Developer tab.
+
+  - Click "Record Macro".
+
+  - Don't worry about naming the macro; it will be temporary.
+
+  - In "Store macro in" box, select "Personal Macro Workbook".
+
+  - Click "OK".
+
+- The PERSONAL.xlsb file will now be created in the XLSTART folder. 
+
+- To use common macros, copy them to modules within the PERSONAL.xlsb file. It will be launched each time Excel opens.
+
+# Sharing PERSONAL.xlsb files
+
+- Find your XLSTART path.
+
+  - Open Developer tab.
+
+  - Click on "Visual Basic".
+
+  - Hit `Ctrl + g` to bring up the Immediate window.
+
+  - Type `? application.StartupPath` and press enter.
+
+- Copy other PERSONAL.xlsb files into that path, and they will be available for use the next time Excel is launched. 
+
+# Resources
+
+[https://www.techrepublic.com/blog/microsoft-office/quick-tip-find-excels-xlstart-folder-fast/]()
+
+[https://support.microsoft.com/en-us/office/create-and-save-all-your-macros-in-a-single-workbook-66c97ab3-11c2-44db-b021-ae005a9bc790]()
