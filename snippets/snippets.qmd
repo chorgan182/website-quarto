@@ -1,6 +1,16 @@
 ---
-title: "Code Snippets"
-page-layout: full
+author: ""
+listing: 
+  contents: "**/*.qmd"
+  type: default
+  sort: "title"
+  categories: cloud
+  fields: 
+    - date
+    - title
+    - categories
+    - description
+    - author
+    - file-modified
+    - reading-time
 ---
-
-# Testing snippets landing page

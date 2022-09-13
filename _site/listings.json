@@ -8,5 +8,11 @@
       "/howto/webex-teams-with-gitlab/index.html",
       "/howto/x-window-setup-on-ubuntu/index.html"
     ]
+  },
+  {
+    "listing": "/snippets/snippets.html",
+    "items": [
+      "/snippets/common-git-commands/common-git-commands.html"
+    ]
   }
 ]

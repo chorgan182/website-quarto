@@ -1,0 +1,131 @@
+---
+title: Common Git Commands
+date: "2022-09-12"
+categories:
+  - Git
+---
+
+# Why?
+
+Command-line git continuously proves to be needed *just* infrequently enough to elude memory. Every time I go to create a new local/remote branch, merge a specific way, or rollback a commit, I end up Googling, "git ..." I decided to create this page so I could consolidate all of those common commands to a single bookmark. Eventually, I'll remember more than `git reset --hard`.
+
+::: callout-warning
+Hard resetting is *not* a good practice unless you know what you're doing 🙃
+:::
+
+# Git Summary
+
+If you are unfamiliar with a git workflow, the commands below will make more sense in this context:
+
+![Workflow](workflow.png)
+
+Furthermore, ***terminology matters!*** Let's define some terms for the common commands below.
+
+|                         |                                                                                                                                                                                               |
+|--------------------|----------------------------------------------------|
+| **Workspace**           | The folder on your computer. Where you open files, make changes, and save changes.                                                                                                            |
+| **Index**               | The staging area between your Workspace and Local repo.                                                                                                                                       |
+| **Local (Repository)**  | Record of commits, specific to you, on your computer.                                                                                                                                         |
+| **Remote (Repository)** | Record of commits, for every member of the project, usually stored on a server. Accessible by all members in some way. On-premise server or cloud-based. Can even be a shared network folder. |
+
+The following commands cover a lot of the steps above.
+
+::: panel-tabset
+## local branches
+
+``` bash
+# list branches
+git branch -a
+
+# create a new local branch and switch to new branch
+# (with "develop" as new branch name")
+git checkout -b develop
+
+# delete local branch
+# (with "develop" as branch to delete)
+git branch -d develop
+
+# rename a branch
+# (from master to main)
+git branch -m master main
+
+# delete local branches that are not on the remote anymore
+git remote prune origin
+
+# rebase feature branch with changes made to develop branch
+# (with "feature_branch" as name of feature and "develop" as name of develop)
+git checkout feature_branch
+git rebase develop
+```
+
+## remote branches
+
+``` bash
+# show origin
+git remote -v
+
+# show details about branch status
+git remote -vv
+
+# create new remote branch from local
+# (with "develop" as local branch name)
+git push -u origin develop
+
+# the -u above is important; it means "upstream"
+# it ensures the local branch is set up to track the remote branch from "origin"
+# if you forget the -u, you will need to set it up manually
+# like this (with "develop" as the branch name)
+git branch -u origin/develop
+
+# delete remote branch
+# (with "develop" as branch to delete)
+git push origin --delete develop
+
+# if you get an error failing to push some refs, that's because the local branch
+#   you deleted was not pushed to the remote
+# the following line will delete that branch from your refs folder
+# (refs are located at "~/.git/refs/...")
+git update-ref -d refs/remotes/origin/dev
+# THEN, you must delete the branch on the remote with the same push as above
+git push origin --delete dev
+# otherwise, the next time you pull, the ref will be added again from the remote
+
+# set the HEAD
+git remote set-head origin -a
+```
+
+## merging
+
+``` bash
+# stash Workspace changes, pull remote changes, merge Workspace changes
+git stash
+git pull
+git stash pop
+
+# prioritize the feature branch during a merge to develop
+git checkout develop
+git merge -s ort -Xtheirs feature-module-rewrite2
+```
+
+## reverting
+
+::: callout-important
+## Danger Zone
+
+Proceed with caution. Work may be lost if executed incorrectly.
+:::
+
+``` bash
+# reset Workspace changes (e.g., before commits)
+# this reverts all unpushed changes to the last commit from the remote branch
+git reset --hard
+
+# reset Workspace changes back a number of commits
+# (here, just 1, and before any commits to Local)
+git reset --hard HEAD~1
+```
+:::
+
+# Resources
+
+[Merge Strategies](https://git-scm.com/docs/git-merge#Documentation/git-merge.txt-ours)

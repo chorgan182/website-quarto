@@ -19,4 +19,8 @@ about:
       href: https://www.youtube.com/channel/UCrbKPkhmPJ7k5Vd8Y1M-d2A
 ---
 
-# Hi I am Charles smile 😃
+# Hello!
+
+This site is in active development. Until I get to the About page, I'm largely a Data Engineer.
+
+I've developed (mostly) automated pipelines for getting unstructured data into databases, dashboards, and scheduled emails. While my most frequently utilized skills corroborate the traditional title, I like to think of myself as a Solution Engineer. "Do you think we could do this better?" and "Is that possible?" are questions that inspire obligatory, relentless Googling, trial and error, and additional tools in the solution toolbox. If you share the same passion, feel free to connect or reach out!

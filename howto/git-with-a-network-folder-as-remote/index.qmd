@@ -58,19 +58,19 @@ Leave all options as default when installing.
 
 -   Launch RStudio.
 
-  -   Ensure any RStudio projects are closed.
+-   Ensure any RStudio projects are closed.
 
-  -   If the Git executable was installed correctly, you should have the option to launch new Terminals with Git Bash. Go to **Tools \> Global Options**, **Terminal** from the sidebar, and make sure "New terminals open with:" **Git Bash**.
+-   If the Git executable was installed correctly, you should have the option to launch new Terminals with Git Bash. Go to **Tools \> Global Options**, **Terminal** from the sidebar, and make sure "New terminals open with:" **Git Bash**.
 
-  -   Launch two new terminals. It's nice to have one for the network side and one for the local side.
+-   Launch two new terminals. It's nice to have one for the network side and one for the local side.
 
 2.  Prepare the local folder.
 
-  -   Create a folder where you want to work locally. I like to put local projects here, for example: `C:\Users\[your username]\Software\GitLocal\[your project name]`. You can do this through the Windows explorer or at the command line.
+-   Create a folder where you want to work locally. I like to put local projects here, for example: `C:\Users\[your username]\Software\GitLocal\[your project name]`. You can do this through the Windows explorer or at the command line.
 
-  -   Open the local terminal session.
+-   Open the local terminal session.
 
-  -   Navigate to the empty folder you just created. Initialize a new Git repository.
+-   Navigate to the empty folder you just created. Initialize a new Git repository.
 
 ``` bash
 cd [path to new folder as above]
@@ -79,11 +79,11 @@ git init
 
 3.  Prepare the remote folder.
 
-  -   Create a folder for the remote repo. Keep in mind this will act as the "server". You won't be able to see files there, it will just act as the engine for cloning from, pushing to, and pulling from. I put it here, for example: `[network drive letter]:\[path to your network project folder]\GitRemote\[your project name]`. Make sure it's named the same as your local folder. You can do this through the Windows explorer or at the command line.
+-   Create a folder for the remote repo. Keep in mind this will act as the "server". You won't be able to see files there, it will just act as the engine for cloning from, pushing to, and pulling from. I put it here, for example: `[network drive letter]:\[path to your network project folder]\GitRemote\[your project name]`. Make sure it's named the same as your local folder. You can do this through the Windows explorer or at the command line.
 
-  -   Open the network terminal session.
+-   Open the network terminal session.
 
-  -   Navigate to the empty folder you just created. Initialize a new, **bare** Git repository. Without a bare repo, you will get errors. I won't pretend I know why. I learned through troubleshooting.
+-   Navigate to the empty folder you just created. Initialize a new, **bare** Git repository. Without a bare repo, you will get errors. I won't pretend I know why. I learned through troubleshooting.
 
 ``` bash
 cd [path to new folder as above]
@@ -92,11 +92,11 @@ git init --bare
 
 4.  Add files to local folder.
 
-  -   Create an RStudio project in the new local folder (do this in a different session so you don't lose your terminals). If you already have an RStudio project, simply copy all of the files into the new local folder. The next time you open the RStudio project, it will automatically recognize the version control because of the `.git` folder within the local folder. Don't worry about opening the project just yet.
+-   Create an RStudio project in the new local folder (do this in a different session so you don't lose your terminals). If you already have an RStudio project, simply copy all of the files into the new local folder. The next time you open the RStudio project, it will automatically recognize the version control because of the `.git` folder within the local folder. Don't worry about opening the project just yet.
 
-  -   Open the local terminal session. If you do `git status`, you should see all of the files you just created/copied.
+-   Open the local terminal session. If you do `git status`, you should see all of the files you just created/copied.
 
-  -   Stage the files, commit them locally, add the remote folder origin, and push to the remote.
+-   Stage the files, commit them locally, add the remote folder origin, and push to the remote.
 
 ``` bash
 git add --all
@@ -107,7 +107,7 @@ git push origin master
 
 5.  Clone a copy to the shared network location.
 
-  -   Open remote terminal session. Navigate to a location that will house the production-ready versions of your projects. Clone from the remote "server". It's probably a good idea to make those folders read/execute only.
+-   Open remote terminal session. Navigate to a location that will house the production-ready versions of your projects. Clone from the remote "server". It's probably a good idea to make those folders read/execute only.
 
 ``` bash
 cd [path to network location]
