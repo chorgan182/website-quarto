@@ -22,7 +22,7 @@ If you are unfamiliar with a git workflow, the commands below will make more sen
 Furthermore, ***terminology matters!*** Let's define some terms for the common commands below.
 
 |                         |                                                                                                                                                                                               |
-|--------------------|----------------------------------------------------|
+|---------------------|---------------------------------------------------|
 | **Workspace**           | The folder on your computer. Where you open files, make changes, and save changes.                                                                                                            |
 | **Index**               | The staging area between your Workspace and Local repo.                                                                                                                                       |
 | **Local (Repository)**  | Record of commits, specific to you, on your computer.                                                                                                                                         |

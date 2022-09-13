@@ -12,7 +12,8 @@
   {
     "listing": "/snippets/snippets.html",
     "items": [
-      "/snippets/common-git-commands/common-git-commands.html"
+      "/snippets/common-git-commands/common-git-commands.html",
+      "/snippets/rstudio-shortcuts-without-addins/rstudio-shortcuts-without-addins.html"
     ]
   }
 ]

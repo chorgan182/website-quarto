@@ -1,0 +1,54 @@
+---
+title: RStudio Shortcuts without Addins
+date: "2022-09-12"
+categories:
+  - Rstudio
+  - R
+  - Productivity
+---
+
+If you want to bind common code to a hotkey, consider using the [shrtcts](https://github.com/gadenbuie/shrtcts) package! It's a lot easier to set up than writing your own RStudio addin.
+
+# Steps
+
+1.  Install `shrtcts` with `remotes::install_github("gadenbuie/shrtcts")`.
+
+2.  Create a new R script using the example below. The format is title, description, hotkey, and code to execute inside the function. Save it as **.shrtcts.R** in your R home directory (find your R home with `path.expand("~")`).
+
+``` {.r filename=".shrtcts.R"}
+#' Write the clipboard into a dataframe
+#'
+#' This is useful for copying a range in Excel and quickly creating a dataframe,
+#' named "df".
+#'
+#' @interactive
+#' @shortcut Ctrl+Alt+V
+function() {
+  assign("df_clipboard",
+         read.table("clipboard", sep = "\t", header = TRUE),
+         envir = .GlobalEnv)
+}
+```
+
+::: callout-tip
+Check your existing keyboard shortcuts with *Tools \> Modify Keyboard Shortcuts* to avoid binding conflicts. In my example, I unbound the default for Ctrl+Alt+V first because I never use it. It is easier to find the keys used by sorting on the Shortcut column in the window (click it).
+:::
+
+3.  Edit your **.Rprofile** with `usethis::edit_r_profile()`.
+
+4.  Paste the exact code below. If you have other things in your .Rprofile, add it to the end. Save the file and close it.
+
+``` {.r filename=".Rprofile"}
+# ~/.Rprofile
+if (interactive() && requireNamespace("shrtcts", quietly = TRUE)) {
+  shrtcts::add_rstudio_shortcuts(set_keyboard_shortcuts = TRUE)
+}
+```
+
+5.  Close all sessions of RStudio.
+
+6.  Reopen RStudio to test.
+
+# Reference
+
+[https://github.com/gadenbuie/shrtcts)]()
