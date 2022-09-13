@@ -23,6 +23,7 @@ format:
       light: flatly
     css: styles.css
     toc: true
+    max-width: "800px"
 
 editor: source
 
