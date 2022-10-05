@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Chuck Horgan">
+<meta name="dcterms.date" content="2022-06-21">
 
-<title>Chuck Horgan - Welcome</title>
+<title>Chuck Horgan - Mail Server Setup</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +25,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -62,7 +64,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -72,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Chuck Horgan</span>
     </a>
   </div>
@@ -82,16 +84,16 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./home.html" aria-current="page">Home</a>
+    <a class="nav-link" href="../../home.html">Home</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about/about.html">About</a>
+    <a class="nav-link" href="../../about/about.html">About</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blog/blog.html">Blog</a>
+    <a class="nav-link" href="../../blog/blog.html">Blog</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./snippets/snippets.html">Code Snippets</a>
+    <a class="nav-link" href="../../snippets/snippets.html">Code Snippets</a>
   </li>  
 </ul>
               <div class="quarto-toggle-container">
@@ -112,50 +114,101 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#install-and-configure-an-mta" id="toc-install-and-configure-an-mta" class="nav-link" data-scroll-target="#install-and-configure-an-mta">Install and Configure an MTA</a></li>
+  <li><a href="#install-and-configure-a-mail-user-agent" id="toc-install-and-configure-a-mail-user-agent" class="nav-link" data-scroll-target="#install-and-configure-a-mail-user-agent">Install and Configure a Mail User Agent</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Welcome</h1>
+<h1 class="title">Mail Server Setup</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Chuck Horgan </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 21, 2022</p>
+    </div>
+  </div>
     
   </div>
   
 
 </header>
 
-<p>While I figure out what to put here, enjoy these pictures of my children 😺</p>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="cass.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Cassidy</figcaption><p></p>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="char.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Charlie</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
+<section id="overview" class="level1">
+<h1>Overview</h1>
+<p>As I quickly learned while venturing down this path, the backend of email transfer is actually quite complicated. Rather, it <em>can</em> be. Sifting through all of the information out there for every system and configuration can be overwhelming, so this little tutorial is meant to simplify things. However, to understand how email works, read the following wiki on the concepts behind email: <a href="https://gitlab.com/muttmua/mutt/-/wikis/MailConcept">How email works</a></p>
+<p>Now that you know the differences between all of the MxAs, our simple configuration will involve an <strong>MTA</strong> and an <strong>MUA</strong>. I found <code>mutt</code> first, which is a simplified command-line MUA. Then I realized that <a href="https://gitlab.com/muttmua/mutt/-/wikis/MuttFaq/Sendmail">mutt needs an MTA</a> to actually send the mail, so I found that <code>sendmail</code> was the easiest to install and use.</p>
+</section>
+<section id="install-and-configure-an-mta" class="level1">
+<h1>Install and Configure an MTA</h1>
+<ul>
+<li><p>As mentioned above, we are using <code>sendmail</code>. The following <a href="https://kenfavors.com/code/how-to-install-and-configure-sendmail-on-ubuntu/">instructions</a> were used to set it up, but I summarized the steps below.</p></li>
+<li><p>Install sendmail.</p></li>
+</ul>
+<!-- -->
+<pre><code>sudo apt-get install sendmail</code></pre>
+<ul>
+<li><p>Ensure hostname is in the host file.</p>
+<ul>
+<li><p>If the hostname is already in the host file, exit with <code>C-x</code>.</p></li>
+<li><p>If it is not, add it to the local line as follows (changing “hostname” to whatever yours is): <code>127.0.0.1 localhost hostname</code>.</p></li>
+<li><p>Save and exit with <code>C-s</code> <code>C-x</code>.</p></li>
+</ul></li>
+</ul>
+<!-- -->
+<pre><code># check hostname
+hostname
+# edit host file
+sudo nano /etc/hosts</code></pre>
+<ul>
+<li>Run configuration, and say yes to everything</li>
+</ul>
+<!-- -->
+<pre><code>sudo sendmailconfig</code></pre>
+</section>
+<section id="install-and-configure-a-mail-user-agent" class="level1">
+<h1>Install and Configure a Mail User Agent</h1>
+<ul>
+<li><p>As mentioned above, we are using <code>mutt</code>. A link to the full guide on their GitLab wiki can be found <a href="https://gitlab.com/muttmua/mutt/-/wikis/MuttGuide">here</a>.</p></li>
+<li><p>Install mutt.</p></li>
+</ul>
+<!-- -->
+<pre><code>sudo apt-get install mutt</code></pre>
+<ul>
+<li>That’s it! Test it with something like this:</li>
+</ul>
+<!-- -->
+<pre><code>echo "Test" | mutt -s Hello user@example.com</code></pre>
+<ul>
+<li>…or with an attachment:</li>
+</ul>
+<!-- -->
+<pre><code>$ echo "Test text" | mutt -s "Test mail" -a example_file.txt -- user@example.com</code></pre>
+<p>For more help or examples, check out this <a href="https://help.ubuntu.com/community/mutt">mutt article on Ubuntu Community</a> or this <a href="https://www.cyberciti.biz/tips/sending-mail-with-attachment.html">mutt article on nixCraft</a>.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

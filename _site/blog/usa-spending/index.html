@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Chuck Horgan">
+<meta name="dcterms.date" content="2022-09-12">
 
-<title>Chuck Horgan - Welcome</title>
+<title>Chuck Horgan - USA Spending - Server Config and Automated Refresh</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +25,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -62,7 +64,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -72,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Chuck Horgan</span>
     </a>
   </div>
@@ -82,16 +84,16 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./home.html" aria-current="page">Home</a>
+    <a class="nav-link" href="../../home.html">Home</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about/about.html">About</a>
+    <a class="nav-link" href="../../about/about.html">About</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blog/blog.html">Blog</a>
+    <a class="nav-link" href="../../blog/blog.html">Blog</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./snippets/snippets.html">Code Snippets</a>
+    <a class="nav-link" href="../../snippets/snippets.html">Code Snippets</a>
   </li>  
 </ul>
               <div class="quarto-toggle-container">
@@ -112,50 +114,138 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#requirements" id="toc-requirements" class="nav-link" data-scroll-target="#requirements">Requirements</a></li>
+  <li><a href="#server-setup" id="toc-server-setup" class="nav-link" data-scroll-target="#server-setup">Server Setup</a></li>
+  <li><a href="#restore-script" id="toc-restore-script" class="nav-link" data-scroll-target="#restore-script">Restore Script</a></li>
+  <li><a href="#scheduling" id="toc-scheduling" class="nav-link" data-scroll-target="#scheduling">Scheduling</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Welcome</h1>
-</div>
+<h1 class="title">USA Spending - Server Config and Automated Refresh</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Research</div>
+    <div class="quarto-category">Server</div>
+    <div class="quarto-category">PostgreSQL</div>
+    <div class="quarto-category">Cron</div>
+    <div class="quarto-category">Linux</div>
+    <div class="quarto-category">Bash</div>
+  </div>
+  </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Chuck Horgan </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 12, 2022</p>
+    </div>
+  </div>
     
   </div>
   
 
 </header>
 
-<p>While I figure out what to put here, enjoy these pictures of my children 😺</p>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="cass.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Cassidy</figcaption><p></p>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="char.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Charlie</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
+<section id="overview" class="level1">
+<h1>Overview</h1>
+<p>amanda is my love &lt;3</p>
+</section>
+<section id="requirements" class="level1">
+<h1>Requirements</h1>
+<p>While the data may technically be restored to any sufficiently-sized server or database platform, this process utilizes a PostgreSQL server hosted on an on-prem <a href="https://wiki.ubuntu.com/">Ubuntu</a> 20 (<a href="https://wiki.ubuntu.com/FocalFossa">Focal Fossa</a>) instance. The supplied <a href="https://files.usaspending.gov/database_download/usaspending-db-setup.pdf">restore script</a> on USA Spending utilized this setup, so I started from there.</p>
+<table class="table">
+<caption><em>Table 1 - Requirements</em></caption>
+<colgroup>
+<col style="width: 24%">
+<col style="width: 39%">
+<col style="width: 35%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Item</th>
+<th>Requirement</th>
+<th>Importance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Hardware</td>
+<td>Continuously-running server</td>
+<td>Critical</td>
+</tr>
+<tr class="even">
+<td>Storage</td>
+<td>At least 4-5 TB</td>
+<td>Critical</td>
+</tr>
+<tr class="odd">
+<td>Computing Resources</td>
+<td>32 GB RAM, 8-core processor</td>
+<td>Low, depends on refresh time preferences/necessity</td>
+</tr>
+<tr class="even">
+<td>Operating System</td>
+<td>Ubuntu 20 (Focal Fossa)</td>
+<td>High</td>
+</tr>
+<tr class="odd">
+<td>Database Platform</td>
+<td>PostgreSQL 10 (or later)</td>
+<td>Medium</td>
+</tr>
+<tr class="even">
+<td>Dependencies</td>
+<td>A lightweight assortment of basic packages</td>
+<td>Medium, this process depends on them, but may be done with user-preferred packages</td>
+</tr>
+<tr class="odd">
+<td>Permissions</td>
+<td>Root/sudo user on Ubuntu server</td>
+<td>Critical</td>
+</tr>
+<tr class="even">
+<td>Prior Knowledge</td>
+<td>Some understanding of basic CLI for Linux and PostgreSQL, database principles, and patience</td>
+<td>Low, hopefully this guide covers it all!</td>
+</tr>
+</tbody>
+</table>
+<p>This process will explain most of the Linux commands necessary, but for a introduction, check out my <em>Linux Common Commands</em> snippet.</p>
+</section>
+<section id="server-setup" class="level1">
+<h1>Server Setup</h1>
+</section>
+<section id="restore-script" class="level1">
+<h1>Restore Script</h1>
+</section>
+<section id="scheduling" class="level1">
+<h1>Scheduling</h1>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -1,0 +1,42 @@
+---
+title: "USA Spending - Server Config and Automated Refresh"
+date: "2022-09-12"
+categories:
+  - Research
+  - Server
+  - PostgreSQL
+  - Cron
+  - Linux
+  - Bash
+---
+
+# Overview
+
+amanda is my love \<3
+
+# Requirements
+
+While the data may technically be restored to any sufficiently-sized server or database platform, this process utilizes a PostgreSQL server hosted on an on-prem [Ubuntu](https://wiki.ubuntu.com/) 20 ([Focal Fossa](https://wiki.ubuntu.com/FocalFossa)) instance. The supplied [restore script](https://files.usaspending.gov/database_download/usaspending-db-setup.pdf) on USA Spending utilized this setup, so I started from there.
+
+| Item                | Requirement                                                                                 | Importance                                                                         |
+|------------------|-----------------------------|--------------------------|
+| Hardware            | Continuously-running server                                                                 | Critical                                                                           |
+| Storage             | At least 4-5 TB                                                                             | Critical                                                                           |
+| Computing Resources | 32 GB RAM, 8-core processor                                                                 | Low, depends on refresh time preferences/necessity                                 |
+| Operating System    | Ubuntu 20 (Focal Fossa)                                                                     | High                                                                               |
+| Database Platform   | PostgreSQL 10 (or later)                                                                    | Medium                                                                             |
+| Dependencies        | A lightweight assortment of basic packages                                                  | Medium, this process depends on them, but may be done with user-preferred packages |
+| Permissions         | Root/sudo user on Ubuntu server                                                             | Critical                                                                           |
+| Prior Knowledge     | Some understanding of basic CLI for Linux and PostgreSQL, database principles, and patience | Low, hopefully this guide covers it all!                                           |
+
+: *Table 1 - Requirements*
+
+This process will explain most of the Linux commands necessary, but for a introduction, check out my *Linux Common Commands* snippet.
+
+# Server Setup
+
+# Restore Script
+
+# Scheduling
+
+# Conclusion

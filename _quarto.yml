@@ -11,8 +11,8 @@ website:
         file: home.qmd
       - text: "About"
         file: about/about.qmd
-      - text: "How-To"
-        file: howto/howto.qmd
+      - text: "Blog"
+        file: blog/blog.qmd
       - text: "Code Snippets"
         file: snippets/snippets.qmd
 

@@ -13,7 +13,19 @@
     "listing": "/snippets/snippets.html",
     "items": [
       "/snippets/common-git-commands/common-git-commands.html",
-      "/snippets/rstudio-shortcuts-without-addins/rstudio-shortcuts-without-addins.html"
+      "/snippets/rstudio-shortcuts-without-addins/rstudio-shortcuts-without-addins.html",
+      "/snippets/common-linux-commands/index.html"
+    ]
+  },
+  {
+    "listing": "/blog/blog.html",
+    "items": [
+      "/blog/git-with-a-network-folder-as-remote/index.html",
+      "/blog/personal-macro-workbook/index.html",
+      "/blog/rstudio-desktop-on-ubuntu/index.html",
+      "/blog/usa-spending/index.html",
+      "/blog/webex-teams-with-gitlab/index.html",
+      "/blog/x-window-setup-on-ubuntu/index.html"
     ]
   }
 ]
