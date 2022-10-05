@@ -1,0 +1,34 @@
+---
+title: Shiny Server Permissions
+author: Chuck Horgan
+date: '2020-11-19'
+---
+
+**:construction: under construction :construction:**
+
+# Problem
+
+When using R's drat to publish new versions of a package, users would get a permissions error. This was due to the user not having sufficient permissions to copy files into an Archive/ directory.
+
+# Solution
+
+Change the default permissions for users within the shiny-users group, add a flag to the FACL that inherits parent directory permissions, and change the group for all existing files/directories within /srv/shiny-server/tran/.
+
+# Useful Commands Learned
+
+(All are examples specific to this problem. Many can only be run with sudo privileges.)
+
+- List all local users `cut -d : -f1 /etc/passwd`
+- List all groups `groups`
+- List all users within a group `getent group shiny-users`
+- Show the FACL (File Access Control List) for a directory `getfacl tran/`
+- Modify default permissions recursively for *a group*, for every directory found under tran/ `sudo find tran/ -type d -exec setfacl -Rdm g:shiny-users:rwx {} +`
+- Modify default permissions recursively for *others*, for every directory found under tran/ `sudo find tran/ -type d -exec setfacl -Rdm other::rx {} +`
+- Add the *setgid* bit, for every directory found under tran/ `sudo find tran/ -type d -exec chmod g+s {} +`
+- Change the group to *shiny-users* recursively for all files and directories under tran/ `sudo chgrp -R shiny-users tran/`
+
+# References
+
+- Read up on how Linux does permissions [here](https://www.linux.com/training-tutorials/understanding-linux-file-permissions/). 
+
+- [Setting default permissions with `chmod` and `setfacl`](https://unix.stackexchange.com/questions/1314/how-to-set-default-file-permissions-for-all-folders-files-in-a-directory)

@@ -6,9 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="">
+<meta name="author" content="Chuck Horgan">
+<meta name="dcterms.date" content="2020-11-19">
 
-<title>Chuck Horgan – snippets</title>
+<title>Chuck Horgan - Shiny Server Permissions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,26 +25,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -63,39 +62,9 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-categories','listing-description','listing-author','listing-file-modified','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -105,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Chuck Horgan</span>
     </a>
   </div>
@@ -115,16 +84,16 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../home.html">Home</a>
+    <a class="nav-link" href="../../home.html">Home</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../about/about.html">About</a>
+    <a class="nav-link" href="../../about/about.html">About</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../blog/blog.html">Blog</a>
+    <a class="nav-link" href="../../blog/blog.html">Blog</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../snippets/snippets.html" aria-current="page">Code Snippets</a>
+    <a class="nav-link" href="../../snippets/snippets.html">Code Snippets</a>
   </li>  
 </ul>
               <div class="quarto-toggle-container">
@@ -145,137 +114,82 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-cloud"><div class="category" data-category="Git"><span class="quarto-category-count category-cloud-4">Git</span></div><div class="category" data-category="Productivity"><span class="quarto-category-count category-cloud-4">Productivity</span></div><div class="category" data-category="R"><span class="quarto-category-count category-cloud-4">R</span></div><div class="category" data-category="Rstudio"><span class="quarto-category-count category-cloud-4">Rstudio</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#problem" id="toc-problem" class="nav-link active" data-scroll-target="#problem">Problem</a></li>
+  <li><a href="#solution" id="toc-solution" class="nav-link" data-scroll-target="#solution">Solution</a></li>
+  <li><a href="#useful-commands-learned" id="toc-useful-commands-learned" class="nav-link" data-scroll-target="#useful-commands-learned">Useful Commands Learned</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Shiny Server Permissions</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Chuck Horgan </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 19, 2020</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
+
+<p><strong>:construction: under construction :construction:</strong></p>
+<section id="problem" class="level1">
+<h1>Problem</h1>
+<p>When using R’s drat to publish new versions of a package, users would get a permissions error. This was due to the user not having sufficient permissions to copy files into an Archive/ directory.</p>
+</section>
+<section id="solution" class="level1">
+<h1>Solution</h1>
+<p>Change the default permissions for users within the shiny-users group, add a flag to the FACL that inherits parent directory permissions, and change the group for all existing files/directories within /srv/shiny-server/tran/.</p>
+</section>
+<section id="useful-commands-learned" class="level1">
+<h1>Useful Commands Learned</h1>
+<p>(All are examples specific to this problem. Many can only be run with sudo privileges.)</p>
+<ul>
+<li>List all local users <code>cut -d : -f1 /etc/passwd</code></li>
+<li>List all groups <code>groups</code></li>
+<li>List all users within a group <code>getent group shiny-users</code></li>
+<li>Show the FACL (File Access Control List) for a directory <code>getfacl tran/</code></li>
+<li>Modify default permissions recursively for <em>a group</em>, for every directory found under tran/ <code>sudo find tran/ -type d -exec setfacl -Rdm g:shiny-users:rwx {} +</code></li>
+<li>Modify default permissions recursively for <em>others</em>, for every directory found under tran/ <code>sudo find tran/ -type d -exec setfacl -Rdm other::rx {} +</code></li>
+<li>Add the <em>setgid</em> bit, for every directory found under tran/ <code>sudo find tran/ -type d -exec chmod g+s {} +</code></li>
+<li>Change the group to <em>shiny-users</em> recursively for all files and directories under tran/ <code>sudo chgrp -R shiny-users tran/</code></li>
+</ul>
+</section>
+<section id="references" class="level1">
+<h1>References</h1>
+<ul>
+<li><p>Read up on how Linux does permissions <a href="https://www.linux.com/training-tutorials/understanding-linux-file-permissions/">here</a>.</p></li>
+<li><p><a href="https://unix.stackexchange.com/questions/1314/how-to-set-default-file-permissions-for-all-folders-files-in-a-directory">Setting default permissions with <code>chmod</code> and <code>setfacl</code></a></p></li>
+</ul>
 
 
+</section>
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Git" data-listing-date-sort="1662955200000" data-listing-file-modified-sort="1663072580541" data-listing-reading-time-sort="5.82">
-<div class="body">
-<a href="../snippets/common-git-commands/common-git-commands.html">
-<h3 class="no-anchor listing-title">
-Common Git Commands
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Git'); return false;">
-Git
-</div>
-</div>
-<a href="../snippets/common-git-commands/common-git-commands.html">
-<div class="listing-description">
-Command-line git continuously proves to be needed <em>just</em> infrequently enough to elude memory. Every time I go to create a new local/remote branch, merge a specific way, or rollback a commit, I end up Googling, “git …” I decided to create this page so I could consolidate all of those common commands to a single bookmark. Eventually, I’ll remember more than <code>git reset --hard</code>.
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="../snippets/common-git-commands/common-git-commands.html">
-<div class="listing-date">
-Sep 12, 2022
-</div>
-<div class="listing-author">
-Chuck Horgan
-</div>
-<div class="listing-reading-time">
-5 min
-</div>
-<div class="metadata-value listing-file-modified">
-9/13/22, 8:36:20 AM
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="Rstudio,R,Productivity" data-listing-date-sort="1662955200000" data-listing-file-modified-sort="1663072580542" data-listing-reading-time-sort="1.165">
-<div class="body">
-<a href="../snippets/rstudio-shortcuts-without-addins/rstudio-shortcuts-without-addins.html">
-<h3 class="no-anchor listing-title">
-RStudio Shortcuts without Addins
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Rstudio'); return false;">
-Rstudio
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Productivity'); return false;">
-Productivity
-</div>
-</div>
-<a href="../snippets/rstudio-shortcuts-without-addins/rstudio-shortcuts-without-addins.html">
-<div class="listing-description">
-If you want to bind common code to a hotkey, consider using the shrtcts package! It’s a lot easier to set up than writing your own RStudio addin.
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="../snippets/rstudio-shortcuts-without-addins/rstudio-shortcuts-without-addins.html">
-<div class="listing-date">
-Sep 12, 2022
-</div>
-<div class="listing-author">
-Chuck Horgan
-</div>
-<div class="listing-reading-time">
-1 min
-</div>
-<div class="metadata-value listing-file-modified">
-9/13/22, 8:36:20 AM
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-listing-date-sort="1605762000000" data-listing-file-modified-sort="1662943637322" data-listing-reading-time-sort="1.105">
-<div class="body">
-<a href="../snippets/common-linux-commands/index.html">
-<h3 class="no-anchor listing-title">
-Shiny Server Permissions
-</h3>
-<div class="listing-subtitle">
-
-</div>
-<div class="listing-description">
-<strong>:construction: under construction :construction:</strong>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="../snippets/common-linux-commands/index.html">
-<div class="listing-date">
-Nov 19, 2020
-</div>
-<div class="listing-author">
-Chuck Horgan
-</div>
-<div class="listing-reading-time">
-1 min
-</div>
-<div class="metadata-value listing-file-modified">
-9/11/22, 8:47:17 PM
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
