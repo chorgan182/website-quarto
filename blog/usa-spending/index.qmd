@@ -12,14 +12,26 @@ categories:
 
 # Overview
 
-amanda is my love \<3
+-   usaspending summary
+
+-   shortfalls of website
+
+-   warnings
+
+    -   db not structured in the most efficient manner
+
+    -   knew nothing beforehand
+
+    -   absolutely better ways to do this
+
+    -   let me know!
 
 # Requirements
 
 While the data may technically be restored to any sufficiently-sized server or database platform, this process utilizes a PostgreSQL server hosted on an on-prem [Ubuntu](https://wiki.ubuntu.com/) 20 ([Focal Fossa](https://wiki.ubuntu.com/FocalFossa)) instance. The supplied [restore script](https://files.usaspending.gov/database_download/usaspending-db-setup.pdf) on USA Spending utilized this setup, so I started from there.
 
 | Item                | Requirement                                                                                 | Importance                                                                         |
-|------------------|-----------------------------|--------------------------|
+|------------------|----------------------------|--------------------------|
 | Hardware            | Continuously-running server                                                                 | Critical                                                                           |
 | Storage             | At least 4-5 TB                                                                             | Critical                                                                           |
 | Computing Resources | 32 GB RAM, 8-core processor                                                                 | Low, depends on refresh time preferences/necessity                                 |
@@ -35,8 +47,28 @@ This process will explain most of the Linux commands necessary, but for a introd
 
 # Server Setup
 
+I was given root credentials to a completely blank server with Ubuntu freshly installed. If you have a mature server with Postgres and common packages already installed, go ahead and skip to the Restore Script.
+
 # Restore Script
+
+## Quick Start
+
+If you're familiar with bash/Postgres and just trying to get this running on your server, save the following file as `update_DB.sh` in your update directory, change the parameters at the top, and execute the file. If you wish to schedule it, see the Scheduling section below.
+
+(embed the script? with github maybe?)
 
 # Scheduling
 
+-   cron explanation
+
+-   crontab line
+
+-   explanation
+
 # Conclusion
+
+-   learned a lot
+
+-   took a few iterations to get right
+
+-   added checks incrementally
