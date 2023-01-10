@@ -12,26 +12,81 @@ categories:
 
 # Overview
 
--   usaspending summary
+## What is USA Spending?
 
--   shortfalls of website
+-   [USAspending.gov]() is the official source for U.S. Government spending data.
 
--   warnings
+-   Its mission is to show the American public what the federal government spends every year and how
+    it spends the money.
 
-    -   db not structured in the most efficient manner
+-   You can follow the money from Congressional appropriations to federal agencies and down to local
+    communities and businesses.
 
-    -   knew nothing beforehand
+-   Data is uploaded directly from more than a hundred federal agencies' financial systems. Data is
+    also pulled or derived from other government systems.
 
-    -   absolutely better ways to do this
+## How are Awards Reported?
 
-    -   let me know!
+-   The Federal Funding Accountability and Transparency Act of 2006 (FFATA) was signed into law on
+    September 26, 2006
+
+-   The legislation required that federal contract, grant, loan, and other financial assistance
+    awards of **more than \$25,000** be displayed on a publicly accessible and searchable website to
+    give the American public access to information on how their tax dollars are being spent.
+
+-   In 2008, FFATA was amended by the Government Funding Transparency Act, which required prime
+    recipients to report details on their first-tier sub-recipients for awards made as of October 1,
+
+    2010. 
+
+-   The transparency efforts of FFATA were expanded with the enactment of the Digital Accountability
+    and Transparency Act (DATA Act) Pub. L. 113-101 on May 9, 2014.
+
+-   Publication of Department of Defense (DOD) and U.S. Army Corps of Engineers (USACE) data in FPDS
+    is delayed 90 days.
+
+-   All other data is delayed 30 days.
+
+## Data Insights From Experience
+
+-   It seems like the DATA Act of 2014 yielded the most reliable DoD award data.
+
+-   Anomalies/inconsistencies have been observed in earlier data, but it is still useful to
+    cross-reference with other sources.
+
+# Why Restore the Full Database?
+
+The USA Spending site itself provides an intuitive, robust interface for finding data. You can use
+an \[advanced search\]() query to drill down to awards, download data to CSVs, and explore
+interactive visualizations. Furthermore, the API has large variety of documented endpoints. Why
+then, would you want to go through the process of restoring the entire database?
+
+1.  You are not finding what you need on the site or API endpoints. The site interface and its
+    downloads do not include all fields contained within the database.
+2.  You want to rely on static, locally-stored data.
+3.  You are envisioning automated/scheduled scripts as part of larger production processes.
+4.  You want to learn how to restore a database and/or some bash scripting and server management.
+
+:::callout-note
+Although the database opens doors to more complex solutions, the database and restore process are not without their shortfalls.
+
+-   From what I've seen so far, the database is not structured in a manner that facilitates efficient [ACID transactions](https://en.wikipedia.org/wiki/ACID).
+
+-   Before I began this process, I knew almost nothing about server management, linux, database management, or bash scripting. After exhausting all of my connections, I went forward with a simplistic solution. However, that process has been running without error for two years now!
+
+-   That being said, there _must_ be better ways to do this. If you have ideas, let me know in the comments!
+:::
 
 # Requirements
 
-While the data may technically be restored to any sufficiently-sized server or database platform, this process utilizes a PostgreSQL server hosted on an on-prem [Ubuntu](https://wiki.ubuntu.com/) 20 ([Focal Fossa](https://wiki.ubuntu.com/FocalFossa)) instance. The supplied [restore script](https://files.usaspending.gov/database_download/usaspending-db-setup.pdf) on USA Spending utilized this setup, so I started from there.
+While the data may technically be restored to any sufficiently-sized server or database platform,
+this process utilizes a PostgreSQL server hosted on an on-prem [Ubuntu](https://wiki.ubuntu.com/) 20
+([Focal Fossa](https://wiki.ubuntu.com/FocalFossa)) instance. The supplied [restore
+script](https://files.usaspending.gov/database_download/usaspending-db-setup.pdf) on USA Spending
+utilized this setup, so I started from there.
 
 | Item                | Requirement                                                                                 | Importance                                                                         |
-|------------------|----------------------------|--------------------------|
+|------------------------|----------------------------------------|------------------------------------|
 | Hardware            | Continuously-running server                                                                 | Critical                                                                           |
 | Storage             | At least 4-5 TB                                                                             | Critical                                                                           |
 | Computing Resources | 32 GB RAM, 8-core processor                                                                 | Low, depends on refresh time preferences/necessity                                 |
@@ -43,19 +98,60 @@ While the data may technically be restored to any sufficiently-sized server or d
 
 : *Table 1 - Requirements*
 
-This process will explain most of the Linux commands necessary, but for a introduction, check out my *Linux Common Commands* snippet.
+This process will explain most of the Linux commands necessary, but for a introduction, check out my
+*Linux Common Commands* snippet.
 
 # Server Setup
 
-I was given root credentials to a completely blank server with Ubuntu freshly installed. If you have a mature server with Postgres and common packages already installed, go ahead and skip to the Restore Script.
+I was given root credentials to a completely blank server with Ubuntu freshly installed. If you have
+a mature server with Postgres and common packages already installed, go ahead and skip to the
+Restore Script.
+
+## First Steps
+
+-   putty and user
+
+-   (optional) link to setup of xrdp
+
+-   partition drives!
+
+## Install Required Software
+
+-   PostgreSQL
+
+-   various dependencies
+
+## Install Quality of Life Software
+
+-   (optional) emacs
+
+## Configure Everything
+
+-   Postgres port
+
+-   restart service
 
 # Restore Script
 
+-   each step explained below
+
+-   skip to Quick Start (link somehow) if comfortable with basic commands and postgresql
+
+-   script designed to be run daily, easier to keep this in mind
+
 ## Quick Start
 
-If you're familiar with bash/Postgres and just trying to get this running on your server, save the following file as `update_DB.sh` in your update directory, change the parameters at the top, and execute the file. If you wish to schedule it, see the Scheduling section below.
+If you're familiar with bash/Postgres and just trying to get this running on your server, save the
+following file as `update_DB.sh` in your update directory, change the parameters at the top, and
+execute the file. If you wish to schedule it, see the Scheduling section below.
 
-(embed the script? with github maybe?)
+(embed the script? with github maybe?) hiya
+
+## Global Parameters
+
+## Compare Database Versions
+
+## Begin Update or Exit Process
 
 # Scheduling
 
